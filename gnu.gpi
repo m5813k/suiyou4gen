@@ -1,0 +1,19 @@
+set title 'Euler du/dt=u'
+set xlabel 'time'
+set ylabel 'u(t)-exp(t)'
+set key bottom left
+plot   'E_0.2.dat'   using 1:4 w lp  lw 2 ps 2  title 'dt=0.2'
+replot 'E_0.1.dat'   using 1:4 w lp  lw 2 ps 2  title 'dt=0.1'
+replot 'E_0.05.dat'  using 1:4 w lp  lw 2 ps 2  title 'dt=0.05'
+replot 'E_0.001.dat' using 1:4 w lp  lw 2 ps 2  title 'dt=0.001'
+
+set term postscript eps color
+set output '/dev/null'
+plot   'E_0.2.dat'  using 1:4 w lp lw 2 ps 2  title 'dt=0.2'
+replot 'E_0.1.dat'  using 1:4 w lp lw 2 ps 2  title 'dt=0.1'
+replot 'E_0.05.dat' using 1:4 w lp lw 2 ps 2  title 'dt=0.05'
+set output 'Euler.eps'
+replot 'E_0.001.dat' using 1:4 w lp lw 2 ps 2  title 'dt=0.001'
+set output
+set term x11
+
